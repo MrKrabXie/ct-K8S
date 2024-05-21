@@ -1,0 +1,92 @@
+services:  
+  cognition-gateway:
+    hostname: cognition-gateway
+    image: 192.168.10.105/cognition/cognition-gateway:${GATEWAY_VERSION}
+    ports:
+      - 9999:9999
+    networks:
+      - ct
+    extra_hosts:
+      - "cognition-redis:192.168.30.120"
+      - "cognition-mysql:192.168.30.119"
+      - "cognition-register:192.168.30.120"
+      - "cognition-elk:192.168.30.120"
+    environment:
+      JAVA_OPTS: -Dhj=cognition-gateway -Xms2048m -Xmx2048m -XX:MetaspaceSize=256m -Djava.security.egd=file:/dev/./urandom
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - "node.labels.tag==server"
+
+  cognition-upms:
+    hostname: cognition-upms
+    image: 192.168.10.105/cognition/cognition-upms-biz:${UPMS_VERSION}
+    networks:
+      - ct
+    extra_hosts:
+      - "cognition-redis:192.168.30.120"
+      - "cognition-mysql:192.168.30.119"
+      - "cognition-register:192.168.30.120"
+      - "cognition-elk:192.168.10.105"
+    environment:
+      JAVA_OPTS: -Dhj=cognition-upms -Xms256m -Xmx256m -XX:MetaspaceSize=128m -Djava.security.egd=file:/dev/./urandom
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - "node.labels.tag==server"
+
+
+  cognition-sentinel:
+    hostname: cognition-sentinel
+    image: 192.168.10.105/cognition/cognition-sentinel-dashboard:${SENTINEL_VERSION}
+    ports:
+      - 5003:5003
+    #volumes:
+    #  - "trainlog:/usr/lib/java/cognition-xxjob/logs"
+    networks:
+      - ct
+    extra_hosts:
+      - "cognition-redis:192.168.30.120"
+      - "cognition-mysql:192.168.30.119"
+      - "cognition-register:192.168.30.121"
+      #- "cognition-elk:192.168.10.105"
+    environment:
+      JAVA_OPTS: -Dhj=cognition-sentinel -Xms256m -Xmx256m -XX:MetaspaceSize=128m -Djava.security.egd=file:/dev/./urandom
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - "node.labels.tag==server"
+
+
+  cognition-monitor:
+    hostname: cognition-monitor
+    image: 192.168.10.105/cognition/cognition-monitor:${MONITOR_VERSION}
+    ports:
+      - 5001:5001
+    #volumes:
+    #  - "trainlog:/usr/lib/java/cognition-xxjob/logs"
+    networks:
+      - ct
+    extra_hosts:
+      - "cognition-redis:192.168.30.120"
+      - "cognition-mysql:192.168.30.119"
+      - "cognition-register:192.168.30.121"
+      #- "cognition-elk:192.168.10.105"
+    environment:
+      JAVA_OPTS: -Dhj=cognition-monitor -Xms256m -Xmx256m -XX:MetaspaceSize=128m -Djava.security.egd=file:/dev/./urandom
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - "node.labels.tag==server"
+
+networks:
+  ct:
+    external: true

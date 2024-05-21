@@ -1,0 +1,25 @@
+services:
+  cognition-mysql:
+    restart: always
+    privileged: true
+    image: mysql:8.0
+    container_name: cognition-mysql
+    volumes:
+      - ./db:/var/lib/mysql
+      - ./conf:/etc/mysql/conf.d
+      - ./logs:/logs
+    command:
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+    environment:
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_USER: "cognition"
+      MYSQL_PASSWORD: "cog@2021"
+      MYSQL_INITDB_SKIP_TZINFO: "Asia/Shanghai"
+    ports:
+      - 33061:3306
+
+networks:
+  ct:
+    external: true

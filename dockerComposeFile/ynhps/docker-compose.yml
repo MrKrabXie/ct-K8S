@@ -1,0 +1,115 @@
+version: '3'
+
+networks:
+  default:
+    driver: bridge
+
+services:
+
+  ynhps-config:
+    env_file: .env
+    container_name: ynhps-config
+    image: ${REGISTRY}/${NAMESPACE}/ynhps-config:latest-${PROFILE}
+    build:
+      context: .
+      dockerfile: Dockerfile-Config
+    ports:
+      - "8989:8989"
+    environment:
+      JAVA_OPTS: >
+        -Xms256m -Xmx256m
+    restart: always
+
+  ynhps-biz-web:
+    env_file: .env
+    container_name: ynhps2-ynhps-biz-web
+    image: ynhps2-ynhps-biz-web
+    build:
+      context: .
+      dockerfile: Dockerfile-Biz-Web
+    ports:
+      - "8080:8080"
+      - "18719:18719"
+      - "33333:33333"
+    environment:
+      JAVA_OPTS: >
+        -Xms256m -Xmx1024m
+        -Ddubbo.application.qos.port=33333
+    restart: always
+
+  ynhps-biz-service:
+    env_file: .env
+    container_name: ynhps2-ynhps-biz-service
+    image: ynhps2-ynhps-biz-service
+    build:
+      context: .
+      dockerfile: Dockerfile-Biz-Service
+    ports:
+      - "19081:19081"
+      - "18718:18718"
+      - "33334:33334"
+    environment:
+      JAVA_OPTS: >
+        -Xms256m -Xmx800m
+        -Ddubbo.application.qos.port=33334
+    restart: always
+
+  ynhps-cognition-service:
+    env_file: .env
+    container_name: ynhps2-ynhps-cognition-service
+    image: ynhps2-ynhps-cognition-service
+    build:
+      context: .
+      dockerfile: Dockerfile-Cognition-Service
+    ports:
+      - "19089:19089"
+      - "18717:18717"
+      - "33341:33341"
+    environment:
+      JAVA_OPTS: >
+        -Xms256m -Xmx800m
+        -Ddubbo.application.qos.port=33341
+    restart: always
+
+  ynhps-tp-service:
+    env_file: .env
+    container_name: ynhps2-ynhps-tp-service
+    image: ynhps2-ynhps-tp-service
+    build:
+      context: .
+      dockerfile: Dockerfile-Tp-Service
+    ports:
+      - "19082:19082"
+      - "18712:18712"
+      - "33337:33337"
+    environment:
+      JAVA_OPTS: >
+        -Xms256m -Xmx600m
+        -Ddubbo.application.qos.port=33337
+    restart: always
+    
+  yjserver-sys-service:
+    container_name: yjserver-sys-service
+    image: yjserver-sys-service
+    build:
+      context: .
+      dockerfile: Dockerfile-yjServer-SYS-Service
+    ports:
+      - "8088:8088"
+    environment:
+      JAVA_OPTS: >
+        -Xms256M -Xmx1024M -XX:PermSize=256M -XX:MaxNewSize=256M -XX:MaxPermSize=256M -Dprofile=test
+    restart: always
+    
+  yjserver-sys-inter:
+    container_name: yjserver-sys-inter
+    image: yjserver-sys-inter
+    build:
+      context: .
+      dockerfile: Dockerfile-yjServer-SYS-Inter
+    ports:
+      - "8096:8096"
+    environment:
+      JAVA_OPTS: >
+        -Xms256M -Xmx1024M -XX:PermSize=256M -XX:MaxNewSize=256M -XX:MaxPermSize=256M -Dprofile=test
+    restart: always

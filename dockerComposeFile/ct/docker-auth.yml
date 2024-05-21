@@ -1,0 +1,75 @@
+services:
+  cognition-auth:
+    hostname: cognition-auth
+    image: 192.168.10.105/cognition/cognition-auth:${AUTH_VERSION}
+    networks:
+      - ct
+    extra_hosts:
+      - "cognition-redis:192.168.30.120"
+      - "cognition-mysql:192.168.30.119"
+      - "cognition-register:192.168.30.120"
+    environment:
+      JAVA_OPTS: -Dhj=cognition-auth -Xms256m -Xmx256m -XX:MetaspaceSize=128m -Djava.security.egd=file:/dev/./urandom
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - "node.labels.tag==server"
+
+ 
+  cognition-screening1:
+    hostname: cognition-screening1
+    image: 192.168.10.105/cognition/cognition-screening-biz:${SCREENING_VERSION}
+    volumes:
+      - cognition-screening-logs:/usr/lib/java/cognition-screening/logs
+    ports:
+      - 28001:8003
+    networks:
+      - ct
+    extra_hosts:
+      - "cognition-redis:192.168.30.120"
+      - "cognition-mysql:192.168.30.119"
+      - "cognition-register:192.168.30.120"
+      - "cognition-elk:192.168.10.105"
+    environment:
+      JAVA_OPTS: -Dhj=cognition-screening -Dfile.encoding=utf-8 -Xms2048m -Xmx2048m -XX:MetaspaceSize=256m -Djava.security.egd=file:/dev/./urandom
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - "node.labels.tag==server"
+
+   
+  cognition-xxjob:
+    hostname: cognition-xxjob
+    image: 192.168.10.105/cognition/cognition-xxl-job-admin:${XXJOB_VERSION}
+    ports:
+      - 5004:5004
+    #volumes:
+    #  - "trainlog:/usr/lib/java/cognition-xxjob/logs"
+    networks:
+      - ct
+    extra_hosts:
+      - "cognition-redis:192.168.30.120"
+      - "cognition-mysql:192.168.30.119"
+      - "cognition-register:192.168.30.121"
+      #- "cognition-elk:192.168.10.105"
+    environment:
+      JAVA_OPTS: -Dhj=cognition-xxl-job-admin -Xms256m -Xmx256m -XX:MetaspaceSize=128m -Djava.security.egd=file:/dev/./urandom
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - "node.labels.tag==server"
+                 
+
+volumes:
+  cognition-screening-logs:
+    driver: local
+
+networks:
+  ct:
+    external: true
