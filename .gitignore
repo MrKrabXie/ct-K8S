@@ -1,2 +1,3 @@
 /.idea
 /.git
+/dockerComposeFile/mysql/db/
