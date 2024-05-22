@@ -1,0 +1,1007 @@
+//自定义变量
+@import '@/variables.scss';
+.icon{
+    position: relative;
+    display: inline-block;
+	background-image: url($image-url + '/static/wxappSource/icon2.png?v=7.02');
+    background-size: 300px auto;
+    &-siteArrow{
+        width: 9px;
+        height: 6px;
+        margin-left: 10rpx;
+        background-position: -211px -2211px;
+    }
+    &-search{
+        width: 15px;
+        height: 15px;
+        top: -2px;
+        background-position: -279px -897px;
+    }
+    &-address{
+        width: 13px;
+        height: 15px;
+        margin: 0 2rpx;
+        top: 2px;
+        background-position: -281px -914px;
+    }
+    &-tel{
+        width: 16px;
+	    height: 15px;
+        top: 2px;
+        background-position: -261px -899px;
+    }
+    &-radio{
+        width: 28px;
+	    height: 28px;
+        background-position: -3px -798px;
+        &.checked{
+            background-position: -3px -766px;
+        }
+    }
+    &-radio2{
+        width: 26px;
+        height: 26px;
+        background-position: -202px -2171px;
+        &.checked{
+            background-position: -235px -2171px;
+        }
+    }
+    &-radio-small{
+        width: 19px;
+	    height: 19px;
+        background-position: -7px -707px;
+        &.checked{
+            background-position: -7px -735px;
+        }
+    }
+    &-relationUser{
+        width: 61px;
+        height: 61px;
+        background-position: -136px -1089px;
+    }
+    &-otherWxBind{
+        width: 126px;
+	    height: 125px;
+        background-position: -6px -1086px;
+    }
+    &-home{
+        width: 23px;
+	    height: 23px;
+        background-position: -139px -1180px;
+        &.active{
+            background-position: -139px -1208px;
+        }
+    }
+    &-consult{
+        width: 22px;
+	    height: 23px;
+        background-position: -198px -1181px;
+        &.active{
+            background-position: -198px -1208px;
+        }
+    }
+    &-personal{
+        width: 22px;
+	    height: 22px;
+        background-position: -170px -1182px;
+        &.active{
+            background-position: -170px -1208px;
+        }
+    }
+    &-site2{
+        width: 12px;
+        height: 15px;
+        top: 2px;
+        background-position: -73px -682px;
+    }
+    &-seeDetail{
+        width: 56px;
+        height: 56px;
+        background-position: -150px -425px;
+    }
+    &-getQualification{
+        width: 56px;
+        height: 56px;
+        background-position: -149px -365px;
+    }
+    &-star{
+        width: 15px;
+	    height: 15px;
+        top: 2px;
+        background-position: -283px -271px;
+    }
+    &-star-samll{
+        width: 10px;
+	    height: 9px;
+        background-position: -287px -128px;
+        &.active{
+            background-position: -274px -128px;
+        }
+    }
+    &-arrow-bottom{
+        width: 12px;
+	    height: 8px;
+        margin-left: 10rpx;
+        background-position: -160px -1161px;
+    }
+    &-arrow-purple{
+        width: 8px;
+	    height: 12px;
+        top: 1px;
+        margin-left: 10rpx;
+        background-position: -204px -109px;
+    }
+    &-arrow-gray{
+        width: 8px;
+	    height: 13px;
+        background-position: -286px -1933px;
+    }
+    &-realName{
+        width: 55px;
+        height: 21px;
+        margin-left: 20rpx;
+        background-position: -230px -1219px;
+    }
+    &-noRealName{
+        width: 55px;
+        height: 21px;
+        margin-left: 20rpx;
+        background-position: -230px -1194px;
+    }
+    &-iconSet1{
+        width: 36px;
+	    height: 39px;
+        background-position: -110px -1288px;
+    }
+    &-iconSet2{
+        width: 36px;
+	    height: 39px;
+        background-position: -219px -1245px;
+    }
+    &-iconSet3{
+	    width: 33px;
+	    height: 39px;
+        background-position: -263px -1244px;
+    }
+    &-iconSet4{
+        width: 17px;
+	    height: 21px;
+        margin: 0 2px;
+        background-position: -142px -1261px;
+    }
+    &-iconSet5{
+        width: 21px;
+	    height: 19px;
+        background-position: -114px -1263px;
+    }
+    &-iconSet6{
+        width: 18px;
+        height: 21px;
+        margin: 0 2px;
+        background-position: -166px -1261px;
+    }
+    &-iconSet7{
+        width: 18px;
+        height: 21px;
+        margin: 0 2px;
+        background-position: -193px -1237px;
+    }
+    &-iconSet8{
+        width: 22px;
+	    height: 22px;
+        background-position: -139px -1236px;
+    }
+    &-iconSet9{
+        width: 20px;
+	    height: 20px;
+        margin: 0 1px;
+        background-position: -114px -1239px;
+    }
+    &-iconSet10{
+        width: 21px;
+	    height: 22px;
+        background-position: -166px -1236px;
+    }
+    &-iconSet11{
+        width: 21px;
+	    height: 19px;
+        margin-top: 2px;
+        background-position: -272px -2141px;
+    }
+    &-iconSet12{
+        width: 20px;
+	    height: 20px;
+        background-position: -273px -2164px;
+    }
+    &-password{
+        width: 18px;
+	    height: 19px;
+        background-position: -193px -1263px;
+    }
+    &-noConsult{
+        width: 105px;
+	    height: 85px;
+        background-position: -188px -1301px;
+    }
+    &-customer{
+        width: 20px;
+        height: 20px;
+        background-position: -175px -85px;
+    }
+    &-speciality{
+        width: 52px;
+	    height: 13px;
+        top: 2px;
+        margin-right: 10rpx;
+        background-position: -175px -67px;
+    }
+    &-arrow-down-purple{
+        width: 13px;
+        height: 8px;
+        background-position: -151px -69px;
+    }
+    &-arrow-downSmall-purple{
+        width: 7px;
+	    height: 5px;
+        background-position: -284px -294px;
+    }
+    &-arrow-downSmall-gray{
+        width: 7px;
+	    height: 5px;
+        background-position: -272px -295px;
+    }
+    &-star-purple{
+        width: 14px;
+        height: 15px;
+        background-position: -133px -106px;
+    }
+    &-collect{
+        width: 16px;
+	    height: 13px;
+        top: 2px;
+        margin-right: 10rpx;
+        background-position: -132px -88px;
+        &.already{
+            background-position: -130px -69px;
+        }
+    }
+    &-recipe{
+        width: 19px;
+	    height: 18px;
+        background-position: -230px -67px;
+    }
+    &-service10003{
+        width: 61px;
+	    height: 61px;
+        background-position: -66px -64px;
+    }
+    &-service10005{
+        width: 60px;
+	    height: 61px;
+        background-position: -140px -132px;
+    }
+    &-service10008{
+        width: 60px;
+	    height: 61px;
+        background-position: -73px -132px;
+    }
+    &-service10001{
+        width: 61px;
+        height: 61px;
+        background-position: -234px -1843px;
+    }
+    &-servicenull{
+        width: 60px;
+	    height: 61px;
+        background-position: -208px -132px;
+    }
+    &-step1{
+        width: 55px;
+        height: 55px;
+        background-position: -2px -4px;
+    }
+    &-step1{
+        width: 55px;
+        height: 55px;
+        background-position: -2px -4px;
+    }
+    &-step2{
+        width: 55px;
+        height: 55px;
+        background-position: -61px -4px;
+    }
+    &-step3{
+        width: 55px;
+        height: 55px;
+        background-position: -120px -4px;
+    }
+    &-step4{
+        width: 55px;
+        height: 55px;
+        background-position: -179px -4px;
+    }
+    &-step5{
+        width: 55px;
+        height: 55px;
+        background-position: -238px -4px;
+    }
+    &-step6{
+        width: 55px;
+        height: 55px;
+        background-position: -6px -67px;
+    }
+    &-socialCard {
+        width: 41px;
+        height: 41px;
+        background-position: -123px -254px;
+    }
+    &-medicalCard {
+        width: 41px;
+        height: 41px;
+        background-position: -123px -205px;
+    }
+    &-delete {
+        width: 23px;
+        height: 23px;
+        background-position: -3px -202px;
+    }
+    &-add {
+        width: 18px;
+        height: 18px;
+        background-position: -277px -167px;
+    }
+    &-browse2 {
+        width: 15px;
+        height: 15px;
+        top: 8rpx;
+        background-position: -282px -254px;
+    }
+    &-heart{
+        width: 15px;
+        height: 14px;
+        top: 5rpx;
+        background-position: -282px -234px;
+    }
+    &-arrow2{
+        width: 8px;
+        height: 13px;
+        margin-left: 10rpx;
+        top: 3rpx;
+        background-position: -204px -108px;
+    }
+    &-image{
+        width: 24px;
+	    height: 24px;
+        background-position: -153px -1320px;
+    }
+    &-audio{
+        width: 19px;
+	    height: 24px;
+        background-position: -154px -1291px;
+    }
+    &-chatText{
+        width: 25px;
+        height: 23px;
+        background-position: -84px -1332px;
+    }
+    &-fail{
+        width: 18px;
+	    height: 18px;
+        background-position: -63px -1321px;
+    }
+    &-audioCancel{
+        width: 39px;
+	    height: 51px;
+        margin-top: 20rpx;
+        background-position: -13px -1327px;
+    }
+    &-edit{
+        width: 14px;
+        height: 15px;
+        background-position: -277px -143px;
+    }
+    &-point{
+        width: 10px;
+	    height: 65px;
+        margin-top: 10rpx;
+        background-position: -64px -1352px;
+    }
+    &-scoreGood{
+        width: 32px;
+	    height: 32px;
+        background-position: -4px -309px;
+    }
+    &-scoreBad{
+        width: 32px;
+	    height: 32px;
+        background-position: -3px -347px;
+    }
+    &-scoreUnknown{
+        width: 32px;
+	    height: 33px;
+        background-position: -4px -387px;
+    }
+    &-serviceTimes{
+        width: 32px;
+        height: 29px;
+        margin-top: 2px 0;
+        background-position: -123px -300px;
+    }
+    &-arrow{
+        width: 8px;
+        height: 13px;
+        background-position: -58px -682px;
+    }
+    &-drugOrg {
+        width: 20px;
+        height: 19px;
+        margin-right: 20rpx;
+        background-position: -30px -204px;
+    }
+    &-presDetail {
+        width: 18px;
+        height: 20px;
+        margin-right: 20rpx;
+        background-position: -3px -252px;
+    }
+    &-continue {
+        width: 16px;
+        height: 13px;
+        margin-right: 12rpx;
+        background-position: -124px -337px;
+    }
+    &-tick{
+        position: absolute;
+        width: 16px;
+        height: 12px;
+        right: 30rpx;
+        top: 50% !important;
+        margin-top: -6px;
+        background-position: -51px -341px;
+    }
+    &-video{
+        width: 17px;
+        height: 13px;
+        top: 2px;
+        margin-right: 10rpx;
+        background-position: -249px -291px;
+    }
+    &-sureOrder {
+        width: 60px;
+        height: 60px;
+        background-position: -56px -264px;
+    }
+    &-drugDetails {
+        width: 18px;
+        height: 20px;
+        margin-right: 20rpx;
+        background-position: -3px -277px;
+    }
+    &-takeMedicine {
+        width: 18px;
+        height: 20px;
+        margin-right: 20rpx;
+        background-position: -27px -252px;
+    }
+    &-map {
+        width: 18px;
+        height: 18px;
+        background-position: -27px -229px;
+    }
+    &-phone2{
+        width: 18px;
+        height: 18px;
+        background-position: -3px -229px;
+        margin-top: 40rpx;
+    }
+    &-sign{
+        width: 60px;
+        height: 60px;
+        background-position: -56px -198px;
+    }
+    &-qrCode{
+        width: 19px;
+        height: 18px;
+        background-position: -99px -335px;
+        margin-left: 20rpx;
+    }
+    &-copy{
+        width: 16px;
+        height: 17px;
+        background-position: -145px -335px;
+        margin-left: 16rpx;
+    }
+    &-chineseMedicine {
+        width: 29px;
+        height: 28px;
+        background-position: -266px -634px;
+    }
+    &-westernMedicine {
+        width: 29px;
+        height: 29px;
+        background-position: -266px -667px;
+    }
+    &-message {
+        width: 19px;
+        height: 20px;
+        background-position: -278px -362px;
+    }
+    &-sdsTips {
+        width: 16px;
+        height: 17px;
+        background-position: -280px -385px;
+        margin-left: 10rpx;
+    }
+    &-unFinishAssess {
+        width: 70px;
+        height: 70px;
+        background-position: -35px -799px;
+    }
+    &-planOne{
+        width: 51px;
+        height: 50px;
+        background-position: -189px -481px;
+    }
+    &-planTwo{
+        width: 51px;
+        height: 50px;
+        background-position: -246px -481px;
+    }
+    &-verifyFail{
+        width: 171px;
+        height: 180px;
+        background-position: -6px -481px;
+    }
+    &-verifySuccess{
+        width: 171px;
+        height: 180px;
+        background-position: -128px -714px;
+    }
+    &-getSeats{
+        width: 175px;
+        height: 180px;
+        background-position: -5px -900px;
+    }
+    &-mood{
+        width: 46px;
+        height: 46px;
+        background-position: -104px -1540px;
+    }
+    &-memory{
+        width: 46px;
+        height: 46px;
+        background-position: -122px -1484px;
+    }
+    &-attention{
+        width: 46px;
+        height: 46px;
+        background-position: -160px -1540px;
+    }
+    &-process{
+        width: 46px;
+        height: 46px;
+        background-position: -6px -1484px;
+    }
+    &-view{
+        width: 46px;
+        height: 46px;
+        background-position: -5px -1429px;
+    }
+    &-executive{
+        width: 46px;
+        height: 46px;
+        background-position: -63px -1485px;
+    }
+    &-sczy{
+        width: 41px;
+	    height: 41px;
+        background-position: -257px -1556px;
+    }
+    &-csjl{
+        width: 41px;
+	    height: 41px;
+        background-position: -258px -1505px;
+    }
+    &-lxkf{
+        width: 41px;
+	    height: 41px;
+        background-position: -211px -1505px;
+    }
+    &-boy{
+        width: 17px;
+        height: 17px;
+        top: 3px;
+        margin-left: 10rpx;
+        background-position: -112px -1596px;
+    }
+    &-girl{
+        width: 17px;
+        height: 17px;
+        top: 2px;
+        margin-left: 10rpx;
+        background-position: -139px -1593px;
+    }
+    &-screenNormal{
+        width: 120px;
+        height: 103px;
+        background-position: -8px -1639px;
+    }
+    &-screenAbnormal{
+        width: 105px;
+	    height: 103px;
+        background-position: -132px -1638px;
+    }
+    &-unCompleteOrder{
+        width: 70px;
+        height: 71px;
+        background-position: -4px -1756px;
+    }
+    &-big-checkBox{
+        width: 23px;
+        height: 24px;
+        background-position: -276px -91px;
+    }
+    &-qrCodeIcon{
+        width: 141px;
+        height: 79px;
+        background-position: -1px -1830px;
+    }
+    &-arrow-down{
+        width: 12px;
+        height: 8px;
+        background-position: -90px -1810px;
+    }
+    &-password2{
+        width: 19px;
+	    height: 21px;
+        background-position: -184px -1748px;
+    }
+    &-userId{
+        width: 19px;
+	    height: 19px;
+        background-position: -151px -1782px;
+    }
+    &-copy2{
+        width: 25px;
+        height: 26px;
+        margin-left: 20rpx;
+        background-position: -150px -1746px;
+    }
+    &-workbench{
+        width: 23px;
+	    height: 25px;
+        background-position: -88px -1747px;
+        &.active{
+            background-position:-88px -1779px;
+        }
+    }
+    &-code{
+        width: 23px;
+	    height: 25px;
+        background-position: -117px -1746px;
+        &.active{
+            background-position:-116px -1781px;
+        }
+    }
+    &-fresh{
+        width: 16px;
+        height: 16px;
+        background-position: -283px -1805px;
+    }
+    &-rapid{
+        width: 22px;
+        height: 24px;
+        background-position: -212px -1747px;
+    }
+    &-conclusion{
+        width: 22px;
+        height: 24px;
+        background-position: -183px -1779px;
+    }
+    &-arrow-left{
+        width: 12px;
+        height: 9px;
+        margin-right: 15rpx;
+        background-position: -2px -1969px;
+    }
+    &-arrow-right{
+        width: 12px;
+        height: 9px;
+        margin-left: 15rpx;
+        background-position: -174px -1969px;
+    }
+    &-quto{
+        width: 23px;
+	    height: 19px;
+        top: -10px;
+        margin-right: 10rpx;
+        background-position: -266px -610px;
+    }
+    &-tips-orange{
+        width: 17px;
+        height: 17px;
+        background-position: -262px -1929px;
+    }
+    &-tips-bottom{
+        width: 19px;
+	    height: 20px;
+        background-position: -238px -1929px;
+    }
+    &-downLoad{
+        width: 20px;
+	    height: 20px;
+        background-position: -196px -1808px;
+    }
+    &-search-therapist{
+        width: 20px;
+	    height: 20px;
+        background-position: -271px -1777px;
+    }
+    &-phone{
+        width: 14px;
+	    height: 14px;
+        background-position: -109px -1809px;
+    }
+    &-card{
+        width: 14px;
+	    height: 14px;
+        background-position: -130px -1809px;
+    }
+    &-therapist-address{
+        width: 14px;
+	    height: 14px;
+        background-position: -150px -1808px;
+    }
+    &-callPhone{
+        width: 27px;
+	    height: 27px;
+        background-position: -249px -1807px;
+    }
+    &-unevaluated{
+        width: 21px;
+	    height: 20px;
+        background-position: -224px -1807px;
+    }
+    &-anomaly{
+        width: 21px;
+	    height: 20px;
+        background-position: -169px -1806px;
+    }
+    &-searchImg{
+        width: 81px;
+	    height: 66px;
+        background-position: -149px -1842px;
+    }
+    &-userInfoView{
+        width: 20px;
+	    height: 18px;
+        background-position: -213px -1782px;
+    }
+    &-userInfoHide{
+        width: 20px;
+	    height: 9px;
+        background-position: -241px -1787px;
+    }
+    &-normalCognition{
+        width: 50px;
+	    height: 50px;
+        background-position: -59px -1915px;
+    }
+    &-obstacle{
+        width: 50px;
+	    height: 50px;
+        background-position: -116px -1915px;
+    }
+    &-noConclusion{
+        width: 50px;
+	    height: 50px;
+        background-position: -4px -1915px;
+    }
+    &-timeLimited{
+        width: 50px;
+	    height: 50px;
+        background-position: -175px -1913px;
+    }
+    &-selected{
+        width: 22px;
+	    height: 22px;
+        background-position: -269px -1750px;
+    }
+    &-unSelected{
+        width: 22px;
+	    height: 22px;
+        background-position: -241px -1750px;
+    }
+    &-copy-address{
+        width: 18px;
+	    height: 18px;
+        background-position: -204px -1594px;
+    }
+    &-imageConsult{
+        width: 16px;
+	    height: 16px;
+        background-position: -232px -1595px;
+    }
+    &-isBind{
+        width: 60px;
+        height: 18px;  
+        background-position: -202px -2142px;
+    }
+    &-downloadReport{
+        width: 16px;
+        height: 18px;  
+        background-position: -274px -2118px;
+    }
+    &-contactService{
+        width: 25px;
+	    height: 25px;
+        top: 3px;
+        background-position: -14px -2247px;
+    }
+    &-fillInManually{
+        width: 30px;
+	    height: 27px;
+        background-position: -5px -2288px;
+    }
+    &-scanPhoto{
+        width: 36px;
+	    height: 36px;
+        background-position: -48px -2322px;
+    }
+    &-selectPhoto{
+        width: 34px;
+	    height: 34px;
+        background-position: -3px -2324px;
+    }
+    &-camera{
+        width: 34px;
+	    height: 31px;
+        background-position: -96px -2325px;
+    }
+    &-selectedSex{
+        width: 35px;
+	    height: 35px;
+        background-position: -138px -2320px;
+    }
+    &-sexMan{
+        width: 79px;
+	    height: 95px;
+        background-position: -10px -2368px;
+    }
+    &-sexWoman{
+        width: 78px;
+	    height: 93px;
+        background-position: -96px -2368px;
+    }
+    &-tips-success{
+        width: 27px;
+	    height: 27px;
+        background-position: -235px -2203px;
+    }
+    &-arrow-date{
+        width: 10px;
+	    height: 16px;
+        background-position: -274px -2191px;
+    }
+    &-arrow-white{
+        width: 9px;
+	    height: 16px;
+        margin-left: 10rpx;
+        top: 2px;
+        background-position: -253px -2324px;
+    }
+    &-radio-white{
+        width: 18px;
+	    height: 19px;
+        margin-right: 10rpx;
+        background-position: -249px -2353px;
+        &.checked{
+            background-position: -273px -2353px;
+        }
+    }
+    &-radio-degree{
+        width: 27px;
+        height: 27px;
+        background-position: -189px -2385px;
+    }
+    &-time{
+        width: 16px;
+        height: 17px; 
+        margin-right: 8rpx; 
+        top: 2.5px;
+        background-position: -192px -2421px;
+    }
+    &-limitExtend{
+        width: 74px;
+	    height: 21px; 
+        margin-top: 60rpx;
+        background-position: -223px -2392px;
+    }
+    &-add-purple{
+        width: 19px;
+	    height: 20px; 
+        margin-right: 8rpx;
+        background-position: -271px -2323px;
+    }
+    &-tips-fail{
+        width: 70px;
+	    height: 70px;
+        background-position: -225px -2417px;
+    }
+}
+.iconL{
+    position: relative;
+    display: inline-block;
+	background-image: url($image-url + '/static/wxappSource/icon-large.png?v=1.31');
+    background-size: 374px auto;
+    &.icon-noConsult{
+        width: 300px;
+        height: 311px;
+        background-position: -8px -601px;
+        &-small {
+            width: 250px;
+            height: 168px;
+            background-position: -10px -923px;
+        }
+    }
+    &.icon-orderDetail{
+        width: 80px;
+        height: 75px;
+        background-position: -248px -10px;
+    }
+    &.icon-orderDetail-cancel{
+        width: 80px;
+        height: 75px;
+        background-position: -149px -10px;
+    }
+    &.icon-empty{
+        width: 102px;
+	    height: 121px;
+        background-position: -25px -9px;
+    }
+    &.icon-empty-detail{
+        width: 103px;
+	    height: 116px;
+        background-position: -177px -169px;
+    }
+    &.icon-service{
+        width: 265px;
+	    height: 165px;
+        background-position: -10px -302px;
+    }
+    &.icon-noCard{
+        margin-top: 360rpx;
+        margin-bottom: 20rpx;
+        width: 135px;
+        height: 96px;
+        background-position: -19px -494px;
+    }
+    &.icon-assessInfo{
+        width: 103px;
+        height: 85px;
+        background-position: -265px -91px;
+    }
+    &.icon-assessIntroduce{
+        width: 113px;
+        height: 130px;
+        background-position: -163px -468px;
+    }
+    &.icon-noOrders{
+        width: 120px;
+        height: 116px;
+        background-position: -8px -1095px;
+    }
+    &.icon-noUnfinishedOrders{
+        width: 130px;
+        height: 105px;
+        background-position: -23px -180px;
+    }
+}
+.active{
+    .icon-planOne{
+        background-position: -189px -546px;
+    }
+    .icon-planTwo{
+        background-position: -246px -546px;
+    }
+}

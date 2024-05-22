@@ -1,5 +1,5 @@
 services:
-  redis:
+  cognition-redis:
     image: redis:latest
     ports:
       - "6379:6379"
@@ -7,10 +7,12 @@ services:
       - redis-data:/data
     command: redis-server --appendonly yes
     networks:
-      - net
+      - ct
  
 networks:
-  net:
+  ct:
+    external: true
+
  
 volumes:
   redis-data:

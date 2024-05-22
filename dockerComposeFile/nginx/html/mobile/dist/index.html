@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang=zh-CN><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><meta http-equiv=Cache-Control content="no-cache, no-store, must-revalidate"><meta http-equiv=Pragma content=no-cache><title></title><style>#loader-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999999;
+        }
+        #loader {
+            display: block;
+            position: relative;
+            left: 50%;
+            top: 40%;
+            width: 50px;
+            height: 50px;
+            margin: -25px 0 0 -25px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            /* COLOR 1 */
+            border-top-color: #846BFF;
+            -webkit-animation: spin 2s linear infinite;
+            /* Chrome, Opera 15+, Safari 5+ */
+            -ms-animation: spin 2s linear infinite;
+            /* Chrome, Opera 15+, Safari 5+ */
+            -moz-animation: spin 2s linear infinite;
+            /* Chrome, Opera 15+, Safari 5+ */
+            -o-animation: spin 2s linear infinite;
+            /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 2s linear infinite;
+            /* Chrome, Firefox 16+, IE 10+, Opera */
+            z-index: 1001;
+        }
+
+        #loader:before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            /* COLOR 2 */
+            border-top-color: #846BFF;
+            -webkit-animation: spin 3s linear infinite;
+            /* Chrome, Opera 15+, Safari 5+ */
+            -moz-animation: spin 3s linear infinite;
+            /* Chrome, Opera 15+, Safari 5+ */
+            -o-animation: spin 3s linear infinite;
+            /* Chrome, Opera 15+, Safari 5+ */
+            -ms-animation: spin 3s linear infinite;
+            /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 3s linear infinite;
+            /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+
+        #loader:after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: #846BFF;
+            /* COLOR 3 */
+            -moz-animation: spin 1.5s linear infinite;
+            /* Chrome, Opera 15+, Safari 5+ */
+            -o-animation: spin 1.5s linear infinite;
+            /* Chrome, Opera 15+, Safari 5+ */
+            -ms-animation: spin 1.5s linear infinite;
+            /* Chrome, Opera 15+, Safari 5+ */
+            -webkit-animation: spin 1.5s linear infinite;
+            /* Chrome, Opera 15+, Safari 5+ */
+            animation: spin 1.5s linear infinite;
+            /* Chrome, Firefox 16+, IE 10+, Opera */
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(0deg);
+                /* IE 9 */
+                transform: rotate(0deg);
+                /* Firefox 16+, IE 10+, Opera */
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(360deg);
+                /* IE 9 */
+                transform: rotate(360deg);
+                /* Firefox 16+, IE 10+, Opera */
+            }
+        }
+        @keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+                /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(0deg);
+                /* IE 9 */
+                transform: rotate(0deg);
+                /* Firefox 16+, IE 10+, Opera */
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                /* Chrome, Opera 15+, Safari 3.1+ */
+                -ms-transform: rotate(360deg);
+                /* IE 9 */
+                transform: rotate(360deg);
+                /* Firefox 16+, IE 10+, Opera */
+            }
+        }</style><script src="https://checkip.yimed.cn/?output=web"></script><script src=https://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js></script><script>var vConsole = new VConsole();
+        var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') || CSS.supports('top: constant(a)'))
+        document.write('<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' + (coverSupport ? ', viewport-fit=cover' : '') + '" />')
+        //当前环境名称
+        var currentAppsName = 'hjDevAppSet' //hnAppSet,hnDevAppSet
+        //是否为微信
+        var isInWx = false
+        //是否为原生
+        var isInNative = false
+        let ua = navigator.userAgent
+        if (ua.indexOf('MicroMessenger') == -1) {//说明不在微信中
+            // 走不在小程序的逻辑
+        } else {
+            isInWx = true
+        }
+        console.log("isInWx", isInWx)
+        //判断当前设备类型
+        function getDeviceType() {
+            var agent = navigator.userAgent.toLowerCase();
+            var systemTxt = '';
+            var res = agent.match(/android/);
+            if (res == "android")
+                systemTxt = "android";
+            res = agent.match(/iphone/);
+            if (res == "iphone")
+                systemTxt = "iphone";
+            res = agent.match(/ipad/);
+            if (res == "ipad")
+                systemTxt = "ipad";
+            res = agent.match(/macintosh/);
+            if (res == "macintosh")
+                systemTxt = "mac";
+            res = agent.match(/windows/);
+            if (res == "windows")
+                systemTxt = "windows";
+            return systemTxt;
+        }
+        //判断是否为原生app调用
+        // if(window.JS || (window.webkit && window.webkit.messageHandlers) && !isInWx && systemTxt != 'mac'){
+        //     isInNative = true
+        // }
+        if(window.JS){
+            isInNative = true
+        }
+        var systemTxt = getDeviceType()
+        console.log("systemTxt", systemTxt)
+        //是否为正式环境(如果是门户正式环境，设为true)
+        var isOfficialFlag = false
+        //是否为门户版本(如果是门户正式环境，设为true)
+        var isPortalApp = false
+        //获取当前的ip
+        var cip = returnIPAddress['ip']</script><link rel=stylesheet href=/mobile/dist/static/index.97465e7b.css></head><body><noscript><strong>Please enable JavaScript to continue.</strong></noscript><div id=app><div id=loader-wrapper><div id=loader></div></div></div><script src=/mobile/dist/static/js/chunk-vendors.dd21aa2e.js></script><script src=/mobile/dist/static/js/index.30194faf.js></script></body></html>

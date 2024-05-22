@@ -1,0 +1,3 @@
+REGISTRY=192.168.10.105
+NAMESPACE=pressure-test
+PROFILE=production
