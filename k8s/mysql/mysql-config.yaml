@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+data:
+  my.cnf: |
+    # 设置MySQL客户端默认字符集
+    [mysqld]
+    server-id=1
+    log_bin=mysql-bin

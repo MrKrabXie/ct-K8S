@@ -1,0 +1,26 @@
+
+services:
+
+  cognition-register:
+    hostname: cognition-register
+    image: 192.168.10.105/cognition/cognition-register:${VERSION}
+    privileged: true
+    ports:
+      - 8848:8848
+    networks:
+      - ct
+    extra_hosts:
+      - "cognition-redis:192.168.101.105"
+      - "cognition-mysql:192.168.101.105"
+    environment:
+      JAVA_OPTS: -Dhj=cognition-register -Xms256m -Xmx256m -XX:MetaspaceSize=128m -Djava.security.egd=file:/dev/./urandom
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - "node.labels.tag==biz_middleware"
+          
+networks:
+  ct:
+    external: true

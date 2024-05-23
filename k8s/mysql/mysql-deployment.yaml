@@ -1,44 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cognition-mysql
+  name: mysql
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: cognition-mysql
+      app: mysql
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
-        app: cognition-mysql
+        app: mysql
     spec:
       containers:
-        - name: mysql
-          image: mysql:8.0
-          ports:
-            - containerPort: 3306
+        - image: mysql:8.0
+          name: mysql
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: "root"
-            - name: MYSQL_USER
-              value: "cognition"
-            - name: MYSQL_PASSWORD
-              value: "cog@2021"
-            - name: MYSQL_INITDB_SKIP_TZINFO
-              value: "Asia/Shanghai"
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: mysql-root-password
+          ports:
+            - containerPort: 3306
+              name: mysql
           volumeMounts:
-            - name: mysql-data
+            - name: mysql-persistent-storage
               mountPath: /var/lib/mysql
-            - name: mysql-conf
-              mountPath: /etc/mysql/conf.d
-            - name: mysql-logs
-              mountPath: /logs
+            - name: mysql-config-volume
+              mountPath: /etc/mysql/my.cnf
+              subPath: my.cnf  # 指定 ConfigMap 中的特定文件
       volumes:
-        - name: mysql-data
+        - name: mysql-persistent-storage
           persistentVolumeClaim:
-            claimName: mysql-data-pvc
-        - name: mysql-conf
+            claimName: mysql-pv-claim
+        - name: mysql-config-volume
           configMap:
             name: mysql-config
-        - name: mysql-logs
-          emptyDir: {}

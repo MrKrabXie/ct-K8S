@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cognition-register-service
+spec:
+  selector:
+    app: cognition-register
+  ports:
+    - protocol: TCP
+      port: 8848
+      targetPort: 8848
+      nodePort: 31848  #30000-32767
+  type: NodePort

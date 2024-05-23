@@ -1,5 +1,6 @@
 services:
   cognition-mysql:
+
     restart: always
     privileged: true
     image: mysql:8.0

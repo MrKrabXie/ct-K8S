@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: cognition-mysql
+  name: mysql
 spec:
-  selector:
-    app: cognition-mysql
+  type: NodePort
   ports:
-    - protocol: TCP
-      port: 33061
+    - port: 3306
       targetPort: 3306
+      nodePort: 30036  # 选择一个可用的端口号
+  selector:
+    app: mysql

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cognition-register
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cognition-register
+  template:
+    metadata:
+      labels:
+        app: cognition-register
+    spec:
+      containers:
+        - name: cognition-register
+          image: 192.168.10.105/cognition/cognition-register:${VERSION}
+          ports:
+            - containerPort: 8848
+          env:
+            - name: JAVA_OPTS
+              value: "-Dhj=cognition-register -Xms256m -Xmx256m -XX:MetaspaceSize=128m -Djava.security.egd=file:/dev/./urandom"
+            - name: cognition-redis
+              value: "cognition-redis"  # 使用服务名作为 Redis 主机
+
