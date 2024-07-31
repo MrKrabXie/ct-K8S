@@ -1,0 +1,64 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zookeeper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zookeeper
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+    spec:
+      containers:
+        - name: zookeeper
+          image: zookeeper:3.7.0
+          resources:
+            requests:
+              cpu: 50m
+              memory: 500Mi
+            limits:
+              cpu: '2'
+              memory: 4000Mi
+          ports:
+            - name: zookeeper-2181
+              containerPort: 2181
+              protocol: TCP
+          volumeMounts:
+            - name: config
+              mountPath: /conf
+            - name: data
+              mountPath: /data
+            - name: datalog
+              mountPath: /datalog
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: zookeeper-data
+        - name: datalog
+          persistentVolumeClaim:
+            claimName: zookeeper-datalog
+        - name: config
+          configMap:
+            name: zookeeper-config
+            items:
+              - key: zoo-cfg
+                path: zoo.cfg
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zookeeper
+spec:
+  ports:
+    - name: zookeeper-2181
+      protocol: TCP
+      port: 2181
+      targetPort: 2181
+  selector:
+    app: zookeeper
+  type: ClusterIP

@@ -1,0 +1,17 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: zookeeper-config
+data:
+  zoo-cfg: |
+    tickTime=2000
+    dataDir=/data
+    dataLogDir=/datalog
+    clientPort=2181
+    initLimit=10
+    syncLimit=5
+    
+    
+
+#    https://kubesphere.io/zh/blogs/zookeeper-on-kubesphere/#%E6%80%9D%E8%B7%AF%E6%A2%B3%E7%90%86
