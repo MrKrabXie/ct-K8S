@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-xxl-job-admin
+  labels:
+    app: {{ .Release.Name }}-xxl-job-admin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-xxl-job-admin
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-xxl-job-admin
+    spec:
+      containers:
+        - name: xxl-job-admin
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          env:
+            - name: PARAMS
+              value: {{ .Values.env.params | quote }}
