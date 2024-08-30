@@ -29,3 +29,11 @@ activemq  NodePort   10.100.123.45   <none>        61616:32123/TCP,8161:32124/TC
 Kubernetes 会为每个 Service 创建一个 DNS 记录，格式为 <service-name>.<namespace>.svc.cluster.local。你可以通过 Service 的 DNS 名称来访问它。
 
 例如，如果你的 Service 名称是 activemq，在默认命名空间下，你可以通过 activemq.default.svc.cluster.local 来访问 ActiveMQ。
+
+### 常用的打包命里给你
+
+#### 构建 Docker 镜像（通过 Maven）
+mvn clean install docker:build docker:save
+
+#### 保存 Docker 镜像
+docker load-i my-image.tar my-image:latest

@@ -1,0 +1,15 @@
+dependencies:
+- name: redis
+  repository: https://charts.bitnami.com/bitnami
+  version: 17.0.7
+- name: mysql
+  repository: https://charts.bitnami.com/bitnami
+  version: 10.3.0
+- name: rocketmq
+  repository: https://helm-charts.itboon.top/rocketmq
+  version: 11.1.0
+- name: nacos
+  repository: file://../nacos-k8s/helm/
+  version: 0.1.5
+digest: sha256:f225dc11009c4384e994a57839b82bb23fddc591cea782222a9ce14064fb7fe5
+generated: "2024-08-29T18:44:14.433563+08:00"

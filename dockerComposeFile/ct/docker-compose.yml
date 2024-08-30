@@ -55,7 +55,7 @@ services:
       - "cognition-register:192.168.30.121"
       #- "cognition-elk:192.168.10.105"
     environment:
-      JAVA_OPTS: -Dhj=cognition-sentinel -Xms256m -Xmx256m -XX:MetaspaceSize=128m -Djava.security.egd=file:/dev/./urandom
+      JAVA_OPTS: -Dhj=cognition-sentinel  -Djava.security.egd=file:/dev/./urandom
     deploy:
       mode: replicated
       replicas: 1
