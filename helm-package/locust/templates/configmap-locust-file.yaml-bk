@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: locustfile-config
+  namespace: {{ .Release.Namespace }}
+data:
+  hello.py: |
+    {{- .Files.Get "locustfiles/crab/hello.py" | nindent 4 }}
+  lib: |
+    {{- .Files.Get "locustfiles/crab/lib" | nindent 4 }}
