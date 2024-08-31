@@ -9,7 +9,13 @@ dependencies:
   repository: https://helm-charts.itboon.top/rocketmq
   version: 11.1.0
 - name: nacos
-  repository: file://../nacos-k8s/helm/
+  repository: file://../nacos/
   version: 0.1.5
-digest: sha256:f225dc11009c4384e994a57839b82bb23fddc591cea782222a9ce14064fb7fe5
-generated: "2024-08-29T18:44:14.433563+08:00"
+- name: xxl-job-admin
+  repository: file://../xxl-job-admin/
+  version: 1.0.0
+- name: cognition-screening
+  repository: file://../cognition-screening/
+  version: 1.0.0
+digest: sha256:e967542de5dba496b477fcd04a400cde576ad326a570d7d566a73077e07c8a06
+generated: "2024-08-31T16:32:39.08556+08:00"

@@ -34,7 +34,13 @@ dependencies:
     repository: https://helm-charts.itboon.top/rocketmq
   - name: nacos
     version: 0.1.5
-    repository: "file://../nacos-k8s/helm/"
+    repository: "file://../nacos/"
+  - name: xxl-job-admin
+    version: 1.0.0
+    repository: "file://../xxl-job-admin/"
+  - name: cognition-screening
+    version: 1.0.0
+    repository: "file://../cognition-screening/"
 
 
 # 添加其他配置

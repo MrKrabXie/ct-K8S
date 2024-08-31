@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "cognition-screening.fullname" . }}
+  labels:
+    {{- include "cognition-screening.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "cognition-screening.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "cognition-screening.name" . }}
+    spec:
+      containers:
+        - name: cognition-screening
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.service.port }}
+          env:
+            - name: NACOS_HOST
+              value: "{{ .Values.env.nacosHost }}"
+            - name: COG_REGISTER_PORT
+              value: "{{ .Values.env.cogRegisterPort }}"
+            - name: JAVA_OPTS
+              value: "-Xms2012m -Xmx2012m -XX:MetaspaceSize=312m -Djava.security.egd=file:/dev/./urandom"
