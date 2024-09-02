@@ -1,7 +1,7 @@
 dependencies:
-- name: redis
-  repository: https://charts.bitnami.com/bitnami
-  version: 17.0.7
+- name: redis-cluster
+  repository: file://../redis-cluster/
+  version: 11.0.3
 - name: mysql
   repository: https://charts.bitnami.com/bitnami
   version: 10.3.0
@@ -17,5 +17,5 @@ dependencies:
 - name: cognition-screening
   repository: file://../cognition-screening/
   version: 1.0.0
-digest: sha256:e967542de5dba496b477fcd04a400cde576ad326a570d7d566a73077e07c8a06
-generated: "2024-08-31T16:32:39.08556+08:00"
+digest: sha256:5dc52edb9918212841a3263dfe8cf4fd460bc6a8c5bf268d02c101ad8ec73556
+generated: "2024-09-02T11:26:17.540479+08:00"

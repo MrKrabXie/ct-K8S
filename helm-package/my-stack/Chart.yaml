@@ -23,9 +23,12 @@ version: 0.1.0
 # It is recommended to use it with quotes.
 appVersion: "1.16.0"
 dependencies:
-  - name: redis
-    version: 17.0.7  # 请根据最新版本替换
-    repository: https://charts.bitnami.com/bitnami
+#  - name: redis
+#    version: 17.0.7  # 请根据最新版本替换
+#    repository: https://charts.bitnami.com/bitnami
+  - name: redis-cluster
+    version: 11.0.3  # 请根据最新版本替换
+    repository: "file://../redis-cluster/"
   - name: mysql
     version: 10.3.0   # 请根据最新版本替换
     repository: https://charts.bitnami.com/bitnami
