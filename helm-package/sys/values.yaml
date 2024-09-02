@@ -1,4 +1,4 @@
-# Default values for my-stack.
+# Default values for sys.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -105,60 +105,3 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-#
-#redis:
-#  architecture: standalone
-#  auth:
-#    ## @param auth.enabled Enable password authentication
-#    ##
-#    enabled: true
-#    ## @param auth.sentinel Enable password authentication on sentinels too
-#    ##
-#    sentinel: true
-#    ## @param auth.password Redis&reg; password
-#    ## Defaults to a random 10-character alphanumeric string if not set
-#    ##
-#    password: "yk2017!!"
-
-redis-cluster:
-  usePassword: true
-  password: "yk2017!!"
-  cluster:
-    nodes: 1
-    replicas: 1
-
-zookeeper:
-  replicaCount: 3
-
-mysql:
-  auth:
-    rootPassword: "root"
-    database: test
-    username: "crab"
-    password: "crab"
-  initdbScriptsConfigMap: "mysql-init-sql-1"
-
-rocketmq:
-  dashboard:
-    enabled: true
-
-activemq:
-  artemisUser: admin
-  artemisPassword: admin
-  replicas: 1
-
-nacos:
-  storage:
-    db:
-      host: my-stack-mysql
-      username: crab
-      password: crab
-
-xxl-job-admin:
-  env:
-    params: "--spring.datasource.url=jdbc:mysql://my-stack-mysql:3306/xxl_job?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai --spring.datasource.username=root --spring.datasource.password=root"
-
-cognition-screening:
-  env:
-    nacosHost: nacos-cs
-    cogRegisterPort: 8848  # 假设这是你的 MySQL 端口号

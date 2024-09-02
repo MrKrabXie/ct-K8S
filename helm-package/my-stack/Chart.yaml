@@ -29,12 +29,18 @@ dependencies:
   - name: redis-cluster
     version: 11.0.3  # 请根据最新版本替换
     repository: "file://../redis-cluster/"
+  - name: zookeeper
+    version: 13.4.11  # 请根据最新版本替换
+    repository: "file://../zookeeper/"
   - name: mysql
     version: 10.3.0   # 请根据最新版本替换
     repository: https://charts.bitnami.com/bitnami
   - name: rocketmq
     version: 11.1.0   # 请根据最新版本替换
     repository: https://helm-charts.itboon.top/rocketmq
+  - name: activemq
+    version: 0.0.4   # 请根据最新版本替换
+    repository: "file://../activemq/"
   - name: nacos
     version: 0.1.5
     repository: "file://../nacos/"

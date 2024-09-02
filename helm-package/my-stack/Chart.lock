@@ -2,12 +2,18 @@ dependencies:
 - name: redis-cluster
   repository: file://../redis-cluster/
   version: 11.0.3
+- name: zookeeper
+  repository: file://../zookeeper/
+  version: 13.4.11
 - name: mysql
   repository: https://charts.bitnami.com/bitnami
   version: 10.3.0
 - name: rocketmq
   repository: https://helm-charts.itboon.top/rocketmq
   version: 11.1.0
+- name: activemq
+  repository: file://../activemq/
+  version: 0.0.4
 - name: nacos
   repository: file://../nacos/
   version: 0.1.5
@@ -17,5 +23,5 @@ dependencies:
 - name: cognition-screening
   repository: file://../cognition-screening/
   version: 1.0.0
-digest: sha256:5dc52edb9918212841a3263dfe8cf4fd460bc6a8c5bf268d02c101ad8ec73556
-generated: "2024-09-02T11:26:17.540479+08:00"
+digest: sha256:da9e168717b4329cca92056be6ccddb70a8bb47d62615249e31f55190e880f4d
+generated: "2024-09-02T13:54:58.391823+08:00"
