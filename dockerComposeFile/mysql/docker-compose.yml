@@ -3,7 +3,7 @@ services:
 
     restart: always
     privileged: true
-    image: mysql:8.0
+    image: mysql:8.0.39
     container_name: cognition-mysql
     volumes:
       - ./db:/var/lib/mysql

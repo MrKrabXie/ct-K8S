@@ -1,11 +1,13 @@
 services:
   cognition-redis:
+
     image: redis:latest
+    restart: always
     ports:
       - "6379:6379"
     volumes:
       - redis-data:/data
-    command: redis-server --appendonly yes
+    command: redis-server --appendonly yes --requirepass 123456
     networks:
       - ct
  
