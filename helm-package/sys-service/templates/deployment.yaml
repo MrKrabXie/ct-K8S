@@ -1,0 +1,105 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "sys-service.fullname" . }}
+  labels:
+    {{- include "sys-service.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "sys-service.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "sys-service.labels" . | nindent 8 }}
+        {{- with .Values.podLabels }}
+        {{- toYaml . | nindent 8 }}
+        {{- end }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "sys-service.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: JAVA_OPTS
+              value: "{{ .Values.env.JAVA_OPTS }}"
+            - name: ZK_HOST
+              value: "{{ .Values.env.ZK_HOST }}"
+            - name: DUBBO_CACHE_DIR
+              value: "{{ .Values.env.DUBBO_CACHE_DIR }}"
+            - name: REDIS_HOST
+              value: "{{ .Values.env.REDIS_HOST }}"
+            - name: REDIS_PORT
+              value: "{{ .Values.env.REDIS_PORT }}"
+            - name: REDIS_MIN_IDLE
+              value: "{{ .Values.env.REDIS_MIN_IDLE }}"
+            - name: REDIS_MAX_IDLE
+              value: "{{ .Values.env.REDIS_MAX_IDLE }}"
+            - name: REDIS_MAX_TOTAL
+              value: "{{ .Values.env.REDIS_MAX_TOTAL }}"
+            - name: REDIS_PASSWORD
+              value: "{{ .Values.env.REDIS_PASSWORD }}"
+            - name: REDIS_MAX_WAIT
+              value: "{{ .Values.env.REDIS_MAX_WAIT }}"
+            - name: REDIS_KEEP_ALIVE
+              value: "{{ .Values.env.REDIS_KEEP_ALIVE }}"
+            - name: MQ_HOST
+              value: "{{ .Values.env.MQ_HOST }}"
+            - name: MQ_USERNAME
+              value: "{{ .Values.env.MQ_USERNAME }}"
+            - name: MQ_PASSWORD
+              value: "{{ .Values.env.MQ_PASSWORD }}"
+            - name: MYSQL_HOST
+              value: "{{ .Values.env.MYSQL_HOST }}"
+            - name: MYSQL_PORT
+              value: "{{ .Values.env.MYSQL_PORT }}"
+            - name: MYSQL_USERNAME
+              value: "{{ .Values.env.MYSQL_USERNAME }}"
+            - name: MYSQL_PASSWORD
+              value: "{{ .Values.env.MYSQL_PASSWORD }}"
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          livenessProbe:
+            {{- toYaml .Values.livenessProbe | nindent 12 }}
+          readinessProbe:
+            {{- toYaml .Values.readinessProbe | nindent 12 }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          {{- with .Values.volumeMounts }}
+          volumeMounts:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+      {{- with .Values.volumes }}
+      volumes:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

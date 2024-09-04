@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-init-sql-1
+  namespace: {{ .Release.Namespace }}
+data:
+  init.sql: |
+    {{- .Files.Get "files/mysql-schema.sql" | nindent 4 }}
+
