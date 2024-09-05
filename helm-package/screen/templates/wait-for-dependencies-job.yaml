@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: wait-for-dependencies
+  annotations:
+    "helm.sh/hook": post-install
+spec:
+  template:
+    spec:
+      containers:
+        - name: wait
+          image: alpine:latest
+          command: ["sh", "-c", "apk add --no-cache netcat-openbsd && while ! nc -z db-mysql 3306; do sleep 5; done; while ! nc -z nacos-ce 8848; do sleep 5; done; echo 'Dependencies are ready'"]
+      restartPolicy: Never

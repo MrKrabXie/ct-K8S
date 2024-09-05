@@ -124,7 +124,7 @@ redis-cluster:
   usePassword: true
   password: "yk2017!!"
   cluster:
-    nodes: 1
+    nodes: 3
     replicas: 1
 
 zookeeper:

@@ -1,8 +1,8 @@
 loadtest:
   # loadtest.name -- a name used for resources and settings in this load test
-  name: crab
+  name: crab-redis
   # loadtest.locust_locustfile -- the name of the locustfile
-  locust_locustfile: hello.py
+  locust_locustfile: redis-locustfile.py
   # loadtest.locust_locustfile_path -- the path of the locustfile (without trailing backslash)
   locust_locustfile_path: "/mnt/locust"
   # loadtest.locust_locustfile_configmap -- name of a configmap containing your locustfile (default uses the example locustfile)
@@ -10,7 +10,7 @@ loadtest:
   # loadtest.locust_lib_configmap -- name of a configmap containing your lib (default uses the example lib)
   locust_lib_configmap: "lib"
   # loadtest.locust_host -- the host you will load test
-  locust_host: http://springboot-service:8081
+  locust_host: http://cognition-screen-02337:8003
   # loadtest.pip_packages -- a list of extra python pip packages to install
   pip_packages: []
   # loadtest.environment -- environment variables used in the load test for both master and workers

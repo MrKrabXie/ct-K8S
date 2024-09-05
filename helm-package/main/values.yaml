@@ -1,4 +1,4 @@
-# Default values for db.
+# Default values for main.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -12,8 +12,7 @@ image:
 
 imagePullSecrets: []
 nameOverride: ""
-#fullnameOverride: ""
-fullnameOverride: "db"
+fullnameOverride: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -106,15 +105,17 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
-
+#
 redis-cluster:
   usePassword: true
   password: "yk2017!!"
   cluster:
     nodes: 6
     replicas: 1
-
-
+#
+#zookeeper:
+#  replicaCount: 3
+#
 mysql:
   auth:
     rootPassword: "root"
@@ -122,3 +123,70 @@ mysql:
     username: "crab"
     password: "crab"
   initdbScriptsConfigMap: "mysql-init-sql-1"
+
+#rocketmq:
+#  dashboard:
+#    enabled: true
+#
+#activemq:
+#  artemisUser: admin
+#  artemisPassword: admin
+#  replicas: 1
+#
+#nacos:
+#  storage:
+#    db:
+#      host: my-stack-mysql
+#      username: crab
+#      password: crab
+#
+#xxl-job-admin:
+#  env:
+#    params: "--spring.datasource.url=jdbc:mysql://my-stack-mysql:3306/xxl_job?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai --spring.datasource.username=root --spring.datasource.password=root"
+#
+#cognition-screening:
+#  env:
+#    nacosHost: nacos-cs
+#    cogRegisterPort: 8848  # 假设这是你的 MySQL 端口号
+#sys-inter:
+#  env:
+#    ZK_HOST: sys-pre-zookeeper
+#    DUBBO_CACHE_DIR: "/Users/xiejiawei/code/datacenter_for_mysql"
+#    REDIS_HOST: db-redis-cluster
+#    REDIS_PORT: "6379"
+#    REDIS_MIN_IDLE: "5"
+#    REDIS_MAX_IDLE: "20"
+#    REDIS_MAX_TOTAL: "100"
+#    REDIS_PASSWORD: "123456"
+#    REDIS_MAX_WAIT: "-1"
+#    REDIS_KEEP_ALIVE: "true"
+#    MQ_HOST: sys-pre-activemq
+#    MQ_USERNAME: "admin"
+#    MQ_PASSWORD: "admin"
+#    dbHost: db-mysql
+#    dbPort: 33061
+#    dbName: jty
+#    db_url: "jdbc:mysql://{{ .Values.dbHost }}:{{ .Values.dbPort }}/{{ .Values.dbName }}?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&serverTimezone=PRC&useSSL=false&allowPublicKeyRetrieval=true"
+#    db_username: "root"
+#    db_password: "root"
+#
+#sys-service:
+#  env:
+#    JAVA_OPTS: "-Dprofile=test"
+#    ZK_HOST: sys-pre-zookeeper
+#    DUBBO_CACHE_DIR: "/Users/xiejiawei/code/datacenter_for_mysql"
+#    REDIS_HOST: db-redis-cluster
+#    REDIS_PORT: "6379"
+#    REDIS_MIN_IDLE: "5"
+#    REDIS_MAX_IDLE: "20"
+#    REDIS_MAX_TOTAL: "100"
+#    REDIS_PASSWORD: "123456"
+#    REDIS_MAX_WAIT: "-1"
+#    REDIS_KEEP_ALIVE: "true"
+#    MQ_HOST: sys-pre-activemq
+#    MQ_USERNAME: "admin"
+#    MQ_PASSWORD: "admin"
+#    MYSQL_HOST: db-mysql
+#    MYSQL_PORT: "33061"
+#    MYSQL_USERNAME: "root"
+#    MYSQL_PASSWORD: "root"

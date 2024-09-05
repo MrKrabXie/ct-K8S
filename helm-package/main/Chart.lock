@@ -1,0 +1,18 @@
+dependencies:
+- name: sys
+  repository: file://../sys
+  version: 0.1.0
+- name: db
+  repository: file://../db
+  version: 0.1.0
+- name: sys-pre
+  repository: file://../sys-pre
+  version: 0.1.0
+- name: screen-pre
+  repository: file://../screen-pre
+  version: 0.1.0
+- name: screen
+  repository: file://../screen
+  version: 0.1.0
+digest: sha256:10a324c57fe69d0800fe5f2741b96977c7c7cfd3716b85d7a8581bdd11b7438c
+generated: "2024-09-04T15:08:42.528663+08:00"
